@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* 1. Base e Fundo Místico */
         body {
             margin: 0;
             padding: 0;
@@ -32,14 +31,15 @@
             opacity: 0.3;
         }
 
-        /* 2. Banner Principal - Responsivo */
+        /* --- BANNER SIMÉTRICO --- */
         .banner {
             width: 100%;
-            height: 500px;
+            height: 450px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
             background: linear-gradient(rgba(26, 0, 51, 0.4), rgba(5, 0, 10, 0.6)), 
                         url('foto-banner.jpg'); 
             background-size: cover;
@@ -47,38 +47,37 @@
             border-bottom: 3px solid #9d4edd;
             box-shadow: 0 10px 40px rgba(157, 78, 221, 0.5);
             position: relative;
-            overflow: hidden;
         }
 
         .nome-debutante {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(80px, 15vw, 130px); /* Ajuste automático para mobile */
+            font-size: clamp(60px, 15vw, 130px);
             color: #fff;
             text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
             margin: 0;
-            z-index: 2;
+            line-height: 1;
         }
 
         .sobrenome {
-            font-size: 24px;
-            letter-spacing: 12px;
+            font-size: clamp(14px, 4vw, 24px);
+            letter-spacing: clamp(4px, 2vw, 12px);
             text-transform: uppercase;
-            margin-top: 5px; 
+            margin-top: 10px;
             font-weight: 400;
-            z-index: 2;
             color: #ffffff;
             text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 2px 2px 5px rgba(0,0,0,0.9);
         }
 
-        /* 3. Menu de Botões Responsivo */
+        /* --- BOTÕES LADO A LADO --- */
         .menu-borboleta {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Permite quebrar linha no mobile */
-            gap: 15px;
-            margin-top: -50px;
+            align-items: center;
+            gap: 10px;
+            margin-top: -40px;
             z-index: 10;
-            padding: 0 10px;
+            width: 95%;
+            max-width: 800px;
         }
 
         .botao-borboleta {
@@ -86,98 +85,106 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            width: 140px; 
-            height: 90px; 
+            /* Tamanho proporcional para caberem lado a lado */
+            width: 25%; 
+            min-width: 85px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.4s ease;
+            transition: 0.3s;
+            text-decoration: none;
+            /* Texto interno */
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 10px;
+            font-size: clamp(8px, 2vw, 10px);
             color: white;
-            text-decoration: none;
             text-align: center;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-            border: none;
-            background-color: transparent;
         }
 
-        /* 4. Contador */
+        .botao-borboleta:hover {
+            transform: translateY(-5px) scale(1.05);
+            filter: drop-shadow(0 0 10px #ff00ff);
+        }
+
+        /* --- CONTADOR --- */
         .countdown-container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
+            justify-content: space-around;
+            width: 90%;
+            max-width: 500px;
             margin: 40px 0;
             padding: 20px;
             background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
+            border-radius: 15px;
             backdrop-filter: blur(8px);
             border: 1px solid rgba(157, 78, 221, 0.3);
-            width: 90%;
-            max-width: 600px;
         }
 
         .countdown-item span {
-            font-size: clamp(1.5rem, 5vw, 3rem);
+            font-size: clamp(1.2rem, 5vw, 2.5rem);
             font-weight: bold;
             color: #fff;
-            text-shadow: 0 0 15px #9d4edd;
             display: block;
         }
 
-        /* 5. Jardim de Memórias Responsivo */
+        .countdown-item p {
+            font-size: 10px;
+            margin: 0;
+            color: #e0aaff;
+            text-transform: uppercase;
+        }
+
+        /* --- GALERIA RESPONSIVA --- */
         .secao-titulo {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(2.5rem, 8vw, 4rem);
             color: #fff;
             text-shadow: 0 0 20px #ff00ff;
-            margin: 40px 0 20px;
-            text-align: center;
+            margin: 30px 0;
         }
 
         .jardim-container {
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 20px;
-            margin-bottom: 60px;
-            width: 100%;
+            align-items: center;
+            gap: 8px;
+            width: 95%;
+            margin-bottom: 50px;
         }
 
         .foto-asa {
             background-size: cover;
             background-position: center;
-            border: 2px solid #ff00ff;
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
-            transition: 0.4s ease;
-            cursor: pointer;
+            border: 1px solid #ff00ff;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
         }
 
-        .f1 { width: 22%; height: 280px; border-radius: 100px 15px 15px 100px; }
-        .f2 { width: 18%; height: 220px; border-radius: 15px 60px 60px 15px; margin-top: 40px; }
-        .separador-corpo { width: 6px; height: 120px; background: #ff00ff; border-radius: 10px; margin: 0 10px; }
-        .f3 { width: 18%; height: 220px; border-radius: 60px 15px 15px 60px; margin-top: 40px; }
-        .f4 { width: 22%; height: 280px; border-radius: 15px 100px 100px 15px; }
+        /* Formatos para Desktop (Mantidos) */
+        .f1 { width: 22%; height: 250px; border-radius: 80px 10px 10px 80px; }
+        .f2 { width: 18%; height: 200px; border-radius: 10px 50px 50px 10px; margin-top: 30px; }
+        .separador-corpo { width: 4px; height: 100px; background: #ff00ff; border-radius: 10px; }
+        .f3 { width: 18%; height: 200px; border-radius: 50px 10px 10px 50px; margin-top: 30px; }
+        .f4 { width: 22%; height: 250px; border-radius: 10px 80px 80px 10px; }
 
-        /* REGRAS ESPECÍFICAS PARA CELULAR */
-        @media (max-width: 768px) {
-            .banner { height: 350px; }
-            .jardim-container { 
-                flex-wrap: wrap; 
-                gap: 15px;
+        /* AJUSTES MOBILE ESPECÍFICOS */
+        @media (max-width: 600px) {
+            .banner { height: 300px; }
+            .menu-borboleta { 
+                gap: 5px; 
+                margin-top: -30px;
+            }
+            .botao-borboleta {
+                height: 60px;
+                min-width: 75px;
             }
             .f1, .f2, .f3, .f4 { 
-                width: 45%; /* Duas fotos por linha no celular */
-                height: 200px;
-                margin-top: 0 !important;
-                border-radius: 15px; /* Formato simplificado para telas pequenas */
+                height: 140px; 
+                margin-top: 0 !important; /* Remove o desalinhamento no mobile para simetria */
             }
-            .separador-corpo { display: none; }
-            .sobrenome { font-size: 16px; letter-spacing: 6px; }
+            .separador-corpo { height: 60px; }
         }
     </style>
 </head>
@@ -199,7 +206,7 @@
 
     <div class="countdown-container">
         <div class="countdown-item"><span id="days">00</span><p>Dias</p></div>
-        <div class="countdown-item"><span id="hours">00</span><p>Horas</p></div>
+        <div class="countdown-item"><span id="hours">00</span><p>Hrs</p></div>
         <div class="countdown-item"><span id="minutes">00</span><p>Min</p></div>
         <div class="countdown-item"><span id="seconds">00</span><p>Seg</p></div>
     </div>
