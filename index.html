@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Anos - Lavynia Santa Rita</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* 1. Base e Fundo Místico */
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at center, #1a0033 0%, #05000a 100%);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* 2. Banner Principal - Responsivo */
+        .banner {
+            width: 100%;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(26, 0, 51, 0.4), rgba(5, 0, 10, 0.6)), 
+                        url('foto-banner.jpg'); 
+            background-size: cover;
+            background-position: center;
+            border-bottom: 3px solid #9d4edd;
+            box-shadow: 0 10px 40px rgba(157, 78, 221, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nome-debutante {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(80px, 15vw, 130px); /* Ajuste automático para mobile */
+            color: #fff;
+            text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+            margin: 0;
+            z-index: 2;
+        }
+
+        .sobrenome {
+            font-size: 24px;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            margin-top: 5px; 
+            font-weight: 400;
+            z-index: 2;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 2px 2px 5px rgba(0,0,0,0.9);
+        }
+
+        /* 3. Menu de Botões Responsivo */
+        .menu-borboleta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Permite quebrar linha no mobile */
+            gap: 15px;
+            margin-top: -50px;
+            z-index: 10;
+            padding: 0 10px;
+        }
+
+        .botao-borboleta {
+            background-image: url('botao-borboleta.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 140px; 
+            height: 90px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 10px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            border: none;
+            background-color: transparent;
+        }
+
+        /* 4. Contador */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .countdown-item span {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 15px #9d4edd;
+            display: block;
+        }
+
+        /* 5. Jardim de Memórias Responsivo */
+        .secao-titulo {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: #fff;
+            text-shadow: 0 0 20px #ff00ff;
+            margin: 40px 0 20px;
+            text-align: center;
+        }
+
+        .jardim-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        .foto-asa {
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+            transition: 0.4s ease;
+            cursor: pointer;
+        }
+
+        .f1 { width: 22%; height: 280px; border-radius: 100px 15px 15px 100px; }
+        .f2 { width: 18%; height: 220px; border-radius: 15px 60px 60px 15px; margin-top: 40px; }
+        .separador-corpo { width: 6px; height: 120px; background: #ff00ff; border-radius: 10px; margin: 0 10px; }
+        .f3 { width: 18%; height: 220px; border-radius: 60px 15px 15px 60px; margin-top: 40px; }
+        .f4 { width: 22%; height: 280px; border-radius: 15px 100px 100px 15px; }
+
+        /* REGRAS ESPECÍFICAS PARA CELULAR */
+        @media (max-width: 768px) {
+            .banner { height: 350px; }
+            .jardim-container { 
+                flex-wrap: wrap; 
+                gap: 15px;
+            }
+            .f1, .f2, .f3, .f4 { 
+                width: 45%; /* Duas fotos por linha no celular */
+                height: 200px;
+                margin-top: 0 !important;
+                border-radius: 15px; /* Formato simplificado para telas pequenas */
+            }
+            .separador-corpo { display: none; }
+            .sobrenome { font-size: 16px; letter-spacing: 6px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars"></div>
+
+    <section class="banner">
+        <h1 class="nome-debutante">Lavynia</h1>
+        <span class="sobrenome">Santa Rita</span>
+    </section>
+
+    <nav class="menu-borboleta">
+        <a href="#" class="botao-borboleta">Confirmar</a>
+        <a href="#" class="botao-borboleta">Fotos</a>
+        <a href="#" class="botao-borboleta">Recados</a>
+        <a href="#" class="botao-borboleta">Presentes</a>
+    </nav>
+
+    <div class="countdown-container">
+        <div class="countdown-item"><span id="days">00</span><p>Dias</p></div>
+        <div class="countdown-item"><span id="hours">00</span><p>Horas</p></div>
+        <div class="countdown-item"><span id="minutes">00</span><p>Min</p></div>
+        <div class="countdown-item"><span id="seconds">00</span><p>Seg</p></div>
+    </div>
+
+    <h2 class="secao-titulo">Jardim de Memórias</h2>
+    
+    <div class="jardim-container">
+        <div class="foto-asa f1" style="background-image: url('foto1.jpg');"></div>
+        <div class="foto-asa f2" style="background-image: url('foto2.jpg');"></div>
+        <div class="separador-corpo"></div>
+        <div class="foto-asa f3" style="background-image: url('foto3.jpg');"></div>
+        <div class="foto-asa f4" style="background-image: url('foto4.jpg');"></div>
+    </div>
+
+    <script>
+        const dataFesta = new Date("2026-10-15T21:00:00").getTime();
+        setInterval(function() {
+            const agora = new Date().getTime();
+            const d = dataFesta - agora;
+            document.getElementById("days").innerText = Math.floor(d / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = String(Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(Math.floor((d % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(Math.floor((d % (1000 * 60)) / 1000)).padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>
